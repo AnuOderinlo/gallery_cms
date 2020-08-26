@@ -6,11 +6,13 @@ class Session{
 	private $signed_in = false;
 	public $user_id; 
 	public $message;
+	public $count;
 
 	function __construct(){
 		session_start();
 		$this->check_login();  
 		$this->check_message();  
+		$this->visitor_count();  
 	}
 
 	private function check_login(){
@@ -49,9 +51,10 @@ class Session{
 		}
 	}
 
+
 	public function check_message(){
 		if (isset($_SESSION['message'])) {
-			$this->message=$_SESSION['message'];
+			$this->message = $_SESSION['message'];
 			unset($_SESSION['message']);
 		}else{
 			 $this->message = "";
@@ -59,10 +62,13 @@ class Session{
 	}
 
 
-
-
-
-
+	public function visitor_count(){
+		if (isset($_SESSION['count'])) {
+			return $this->count = $_SESSION['count']++;
+		}else{
+			return $_SESSION['count'] = 1;
+		}
+	}
 
 
 }
@@ -70,6 +76,7 @@ class Session{
 
 
 $session = new Session();
+$message = $session->message;
 
 
 

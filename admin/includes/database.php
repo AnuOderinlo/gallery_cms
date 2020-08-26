@@ -34,6 +34,13 @@ class Database{
 		return $escape_string;
 	}
 
+	public function insert_id(){
+		return $this->db->insert_id;
+	}
+
+
+
+
 }
 
 $database = new Database();

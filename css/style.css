@@ -1,0 +1,14 @@
+.home-photo{
+	width: 400px!important;
+	min-height: 190px!important;
+	display: inline-block;
+}
+
+.active a{
+	background-color: black!important;
+	color: #ffff!important;
+}
+.active a:hover{
+	background-color: #ffff!important;
+	color: black!important;
+}

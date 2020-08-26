@@ -3,9 +3,12 @@
   if (!$session->is_signed_in()) {
       redirect("login.php");
   }
+  if (empty($_GET['id'])) {
+      redirect('photos.php');
+  }
 
-
-  $comments = Comment::find_all();
+  $photo = Photo::find_by_id($_GET['id']);
+  $comments = Comment::find_comments($_GET['id']);
  ?>
 
   <!-- Navigation -->
@@ -22,7 +25,7 @@
       <div class="row">
         <div class="col-lg-12">
           <h1 class="page-header">
-            All comments
+            comments
             <!-- <small>Subheading</small> -->
           </h1>
           <!-- <a href="add_comment.php" class="btn btn-primary">Add comment</a> -->
@@ -32,8 +35,8 @@
               <thead>
                 <tr>
                   <th>Id</th>
+                  <th>Photo</th>
                   <th>Author</th>
-                  <!-- <th>Photo</th> -->
                   <th>Comment</th>
                 </tr>
               </thead>
@@ -48,11 +51,15 @@
                     <?php echo $comment->id; ?>
                   </td>
                   <td>
+                    <img src="<?php echo $photo->picture_path(); ?> " class="image-responsive admin-photo-thumbnail" alt="">; 
+                  </td>
+                  <td>
                     <?php echo $comment->author; ?>
                     <div class="action_links">
-                      <a href="delete_comment.php?id=<?php echo $comment->id ?>">Delete</a>
+                      <a href="delete_comment_photo.php?id=<?php echo $comment->id ?>">Delete</a>
                     </div>
                   </td>
+                 
                   <td>
                     <?php echo $comment->body; ?>
                   </td>

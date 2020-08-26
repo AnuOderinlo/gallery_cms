@@ -5,6 +5,12 @@
         // redirect("login.php");
     }
 
+    // $user = User::find_by_id();
+    // foreach ($users as $user) {
+    //     $user->first_name;
+    //     $user->last_name;
+    // }
+
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,6 +33,14 @@
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="css/dropzone.css ">
+    <link rel="stylesheet" href="css/style.css ">
+
+
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+      <script>tinymce.init({selector:'textarea'});</script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
